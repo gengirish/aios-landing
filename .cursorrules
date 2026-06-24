@@ -1,0 +1,81 @@
+# IntelliForge AI OS — Landing Page
+# Cursor Rules
+
+## Stack
+- Next.js 14 App Router
+- TypeScript strict mode
+- Tailwind CSS with custom IF design tokens (tailwind.config.ts)
+- lucide-react for icons
+- JetBrains Mono for code traces, Inter for UI
+
+## Design Tokens (from tailwind.config.ts)
+- `if-dark`    #0f172a  — page background
+- `if-indigo`  #4f46e5  — primary brand
+- `if-purple`  #7c3aed  — secondary
+- `if-cyan`    #06b6d4  — accent / India layer
+- `if-green`   #10b981  — success / eval layer
+- `if-orange`  #f97316  — India layer
+- `if-text`    #e2e8f0  — body text
+- `if-text-dim` #94a3b8 — muted text
+- `if-border`  #1e3a5f  — borders
+
+## CSS Classes (globals.css)
+- `.text-gradient-if`  — indigo→purple→cyan gradient text
+- `.glass-card`        — frosted glass card
+- `.glass-card-indigo` — indigo-tinted glass
+- `.glass-card-cyan`   — cyan-tinted glass
+- `.btn-primary`       — indigo gradient CTA button
+- `.btn-secondary`     — ghost button
+- `.tag-pill`          — small pill label (use with .tag-indigo etc)
+- `.eyebrow`           — uppercase section label
+- `.code-trace`        — JetBrains Mono code trace text
+- `.harness-layer`     — left-bordered layer row
+
+## Components
+- `Navbar`       — fixed top nav with scroll detection
+- `Hero`         — animated harness layer stack + code traces
+- `Architecture` — 5-layer stack + 8-package SDK table
+- `Products`     — IF portfolio as ForgeOS Cloud tenants
+- `Roadmap`      — 5 build phases with timeline
+- `Pricing`      — 4 tiers in INR (Free / ₹2,999 / ₹9,999 / Enterprise)
+- `Waitlist`     — email capture with role selector
+- `Footer`       — links + brand
+
+## Key TODOs for Cursor
+1. Wire Waitlist form to Supabase:
+   - Table: `aios_waitlist (id, name, email, role, use_case, created_at)`
+   - Use `@supabase/ssr` package
+   - Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to .env.local
+
+2. Docs section (`#docs`):
+   - Create `/app/docs/page.tsx`
+   - Show npm install commands for all 8 packages
+   - Wire to actual GitHub repo when ready
+
+3. Analytics:
+   - Add Vercel Analytics or Plausible
+   - Track: waitlist_submit, cta_click, section_view
+
+4. Deployment:
+   - Domain: aios.intelliforge.tech
+   - Deploy to Fly.io bom region OR Vercel (simpler for landing page)
+   - Add to existing Turborepo as `apps/aios-landing`
+
+5. AiSensy WhatsApp confirmation:
+   - On waitlist submit, send WhatsApp confirmation via AiSensy API
+   - Template: "Hi {name}! You're on the IntelliForge AI OS waitlist..."
+
+## Naming Conventions
+- All IF products: PascalCase (AwaazOS, ForgeAhead, HridLink)
+- npm packages: lowercase-kebab (@intelliforge/harness-core)
+- API routes: /api/waitlist, /api/docs
+- Supabase tables: snake_case (aios_waitlist)
+- All INR amounts as integer paise internally (₹2,999 = 299900 paise)
+- Dates: DD/MM/YYYY for display, ISO 8601 for storage
+- Phones: E.164 format
+
+## Do not change
+- The 5-layer harness architecture (matches IF-RES-2026-017)
+- The 8-package SDK names (they match the research spec)
+- The INR pricing tiers (₹2,999 / ₹9,999)
+- The IF monogram "IF" styling
