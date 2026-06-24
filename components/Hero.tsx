@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { ArrowRight, Github, Zap } from 'lucide-react'
+import TrackedLink from '@/components/TrackedLink'
 
 // Animated code traces that cycle through harness operations
 const CODE_TRACES = [
@@ -151,19 +152,21 @@ export default function Hero() {
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-3 mb-10">
-              <a href="#waitlist" className="btn-primary">
+              <TrackedLink href="#waitlist" cta="join_waitlist" location="hero" className="btn-primary">
                 Join Waitlist
                 <ArrowRight size={16} />
-              </a>
-              <a
+              </TrackedLink>
+              <TrackedLink
                 href="https://github.com/gengirish"
                 target="_blank"
                 rel="noopener noreferrer"
+                cta="github_harness"
+                location="hero"
                 className="btn-secondary"
               >
                 <Github size={16} />
                 @intelliforge/harness
-              </a>
+              </TrackedLink>
             </div>
 
             {/* Trust signals */}

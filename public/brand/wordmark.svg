@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 48" fill="none" role="img" aria-label="IntelliForge AI OS wordmark">
+  <defs>
+    <linearGradient id="wm-grad" x1="0" y1="0" x2="320" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <text x="0" y="28" font-family="Inter, system-ui, sans-serif" font-size="26" font-weight="800" fill="#e2e8f0" letter-spacing="-0.5">IntelliForge</text>
+  <text x="0" y="46" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="url(#wm-grad)" letter-spacing="2">AI OS</text>
+</svg>

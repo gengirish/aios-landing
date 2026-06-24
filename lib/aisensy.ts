@@ -26,6 +26,7 @@ export async function sendWaitlistConfirmation({
       userName: name,
       templateParams: [name],
     }),
+    signal: AbortSignal.timeout(10_000),
   })
 
   if (!response.ok) {

@@ -1,4 +1,6 @@
 import { Github, Linkedin, ExternalLink } from 'lucide-react'
+import Logo from '@/components/Logo'
+import { BRAND } from '@/lib/brand'
 
 const LINKS = {
   Product: [
@@ -32,16 +34,9 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-4">
-              <div className="if-mono">IF</div>
-              <div>
-                <div className="text-sm font-800 text-white">IntelliForge</div>
-                <div className="text-xs text-gradient-if font-700">AI OS</div>
-              </div>
-            </div>
+            <Logo variant="lockup" size="sm" href="/" className="mb-4" />
             <p className="text-xs text-if-text-dim leading-relaxed mb-4">
-              OSS harness framework + India-first hosted platform for building
-              executable, verifiable, and stateful AI agent systems.
+              {BRAND.descriptor}
             </p>
             <div className="flex gap-3">
               <a

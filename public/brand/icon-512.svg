@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-label="IntelliForge AI OS app icon">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="0.5" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="border" x1="64" y1="64" x2="448" y2="448" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+  <rect x="48" y="48" width="416" height="416" rx="96" fill="#0f172a" stroke="url(#border)" stroke-width="8"/>
+  <!-- Layer bars left -->
+  <rect x="72" y="120" width="12" height="272" rx="6" fill="#10b981" opacity="0.35"/>
+  <rect x="72" y="148" width="12" height="216" rx="6" fill="#4f46e5" opacity="0.35"/>
+  <rect x="72" y="176" width="12" height="160" rx="6" fill="#7c3aed" opacity="0.35"/>
+  <rect x="72" y="204" width="12" height="104" rx="6" fill="#06b6d4" opacity="0.35"/>
+  <rect x="72" y="232" width="12" height="48" rx="6" fill="#f97316" opacity="0.4"/>
+  <text x="280" y="290" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="140" font-weight="900" fill="#e2e8f0" letter-spacing="-6">IF</text>
+</svg>

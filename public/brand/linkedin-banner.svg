@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1584 396" fill="none" role="img" aria-label="IntelliForge AI OS LinkedIn banner">
+  <defs>
+    <linearGradient id="bg-li" x1="0" y1="0" x2="1584" y2="396" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="0.5" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="g-li" x1="0" y1="0" x2="600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <rect width="1584" height="396" fill="url(#bg-li)"/>
+  <rect x="80" y="118" width="72" height="72" rx="16" fill="#0f172a" stroke="url(#g-li)" stroke-width="2.5"/>
+  <text x="116" y="168" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="32" font-weight="900" fill="#e2e8f0" letter-spacing="-1.5">IF</text>
+  <text x="180" y="155" font-family="Inter, system-ui, sans-serif" font-size="42" font-weight="800" fill="#e2e8f0">IntelliForge <tspan fill="url(#g-li)">AI OS</tspan></text>
+  <text x="180" y="195" font-family="Inter, system-ui, sans-serif" font-size="20" font-weight="500" fill="#94a3b8">OSS harness framework · India-first ForgeOS Cloud · aios.intelliforge.tech</text>
+  <!-- Layer spectrum bar -->
+  <rect x="80" y="260" width="200" height="6" rx="3" fill="#10b981"/>
+  <rect x="290" y="260" width="200" height="6" rx="3" fill="#4f46e5"/>
+  <rect x="500" y="260" width="200" height="6" rx="3" fill="#7c3aed"/>
+  <rect x="710" y="260" width="200" height="6" rx="3" fill="#06b6d4"/>
+  <rect x="920" y="260" width="200" height="6" rx="3" fill="#f97316"/>
+</svg>

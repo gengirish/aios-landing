@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 64" fill="none" role="img" aria-label="IntelliForge AI OS lockup">
+  <defs>
+    <linearGradient id="lk-border" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <linearGradient id="lk-grad" x1="80" y1="0" x2="420" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+  <!-- Mark -->
+  <rect x="4" y="14" width="3" height="36" rx="1.5" fill="#10b981" opacity="0.9"/>
+  <rect x="4" y="18" width="3" height="28" rx="1.5" fill="#4f46e5" opacity="0.85"/>
+  <rect x="4" y="22" width="3" height="20" rx="1.5" fill="#7c3aed" opacity="0.85"/>
+  <rect x="4" y="26" width="3" height="12" rx="1.5" fill="#06b6d4" opacity="0.85"/>
+  <rect x="4" y="30" width="3" height="4" rx="1.5" fill="#f97316" opacity="0.9"/>
+  <rect x="10" y="8" width="50" height="48" rx="12" fill="#0f172a" stroke="url(#lk-border)" stroke-width="2"/>
+  <text x="35" y="42" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="22" font-weight="900" fill="#e2e8f0" letter-spacing="-1">IF</text>
+  <!-- Wordmark -->
+  <text x="76" y="36" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="800" fill="#e2e8f0" letter-spacing="-0.5">IntelliForge</text>
+  <text x="76" y="54" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="url(#lk-grad)" letter-spacing="2.5">AI OS</text>
+</svg>

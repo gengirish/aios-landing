@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" fill="none" role="img" aria-label="IntelliForge AI OS social banner">
+  <defs>
+    <linearGradient id="bg-s" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="0.45" stop-color="#1e1b4b"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 200) rotate(90) scale(400 400)">
+      <stop stop-color="#4f46e5" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#4f46e5" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="text-g" x1="80" y1="0" x2="800" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#4f46e5"/>
+      <stop offset="0.5" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#06b6d4"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="white" stroke-opacity="0.04" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg-s)"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <ellipse cx="950" cy="180" rx="350" ry="280" fill="url(#glow)"/>
+  <!-- Harness stack right -->
+  <rect x="920" y="420" width="200" height="28" rx="6" fill="#f97316" fill-opacity="0.15" stroke="#f97316" stroke-width="1.5"/>
+  <rect x="920" y="378" width="200" height="28" rx="6" fill="#06b6d4" fill-opacity="0.15" stroke="#06b6d4" stroke-width="1.5"/>
+  <rect x="920" y="336" width="200" height="28" rx="6" fill="#7c3aed" fill-opacity="0.15" stroke="#7c3aed" stroke-width="1.5"/>
+  <rect x="920" y="294" width="200" height="28" rx="6" fill="#4f46e5" fill-opacity="0.15" stroke="#4f46e5" stroke-width="1.5"/>
+  <rect x="920" y="252" width="200" height="28" rx="6" fill="#10b981" fill-opacity="0.15" stroke="#10b981" stroke-width="1.5"/>
+  <!-- Mark -->
+  <rect x="80" y="200" width="88" height="88" rx="20" fill="#0f172a" stroke="url(#text-g)" stroke-width="3"/>
+  <text x="124" y="262" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="38" font-weight="900" fill="#e2e8f0" letter-spacing="-2">IF</text>
+  <!-- Copy -->
+  <text x="200" y="230" font-family="Inter, system-ui, sans-serif" font-size="52" font-weight="800" fill="#e2e8f0" letter-spacing="-1">IntelliForge</text>
+  <text x="200" y="280" font-family="Inter, system-ui, sans-serif" font-size="36" font-weight="700" fill="url(#text-g)" letter-spacing="1">AI OS</text>
+  <text x="80" y="360" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="500" fill="#94a3b8">Build reliable AI agents.</text>
+  <text x="80" y="400" font-family="JetBrains Mono, monospace" font-size="18" fill="#06b6d4" opacity="0.8">@intelliforge/harness · ForgeOS Cloud · aios.intelliforge.tech</text>
+</svg>

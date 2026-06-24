@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { Github } from 'lucide-react'
+import Logo from '@/components/Logo'
+import TrackedLink from '@/components/TrackedLink'
 
 const NAV_LINKS = [
   { label: 'Architecture', href: '#architecture' },
@@ -9,6 +11,7 @@ const NAV_LINKS = [
   { label: 'Roadmap', href: '#roadmap' },
   { label: 'Pricing', href: '#pricing' },
   { label: 'Docs', href: '/docs' },
+  { label: 'Brand', href: '/brand' },
 ]
 
 export default function Navbar() {
@@ -32,17 +35,7 @@ export default function Navbar() {
       <nav className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
 
         {/* Logo */}
-        <a href="/" className="flex items-center gap-3 group">
-          <div className="if-mono group-hover:border-indigo-400 transition-colors">IF</div>
-          <div className="flex flex-col">
-            <span className="text-[13px] font-800 text-white leading-none tracking-tight">
-              IntelliForge
-            </span>
-            <span className="text-[11px] font-700 text-gradient-if leading-none">
-              AI OS
-            </span>
-          </div>
-        </a>
+        <Logo variant="lockup" size="md" href="/" />
 
         {/* Desktop links */}
         <ul className="hidden md:flex items-center gap-6">
@@ -60,18 +53,20 @@ export default function Navbar() {
 
         {/* CTAs */}
         <div className="hidden md:flex items-center gap-3">
-          <a
+          <TrackedLink
             href="https://github.com/gengirish"
             target="_blank"
             rel="noopener noreferrer"
+            cta="github"
+            location="navbar"
             className="text-if-text-dim hover:text-white transition-colors"
             aria-label="GitHub"
           >
             <Github size={18} />
-          </a>
-          <a href="#waitlist" className="btn-primary text-sm py-2 px-4">
+          </TrackedLink>
+          <TrackedLink href="#waitlist" cta="join_waitlist" location="navbar" className="btn-primary text-sm py-2 px-4">
             Join Waitlist
-          </a>
+          </TrackedLink>
         </div>
 
         {/* Mobile hamburger */}
@@ -101,9 +96,15 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a href="#waitlist" className="btn-primary w-full justify-center mt-3 text-sm">
+          <TrackedLink
+            href="#waitlist"
+            cta="join_waitlist"
+            location="navbar_mobile"
+            className="btn-primary w-full justify-center mt-3 text-sm"
+            onClick={() => setMenuOpen(false)}
+          >
             Join Waitlist
-          </a>
+          </TrackedLink>
         </div>
       )}
     </header>

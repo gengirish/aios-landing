@@ -18,4 +18,8 @@ await sql`
   create index if not exists aios_waitlist_created_at_idx on aios_waitlist (created_at desc)
 `
 
-console.log('aios_waitlist table ready')
+await sql`
+  alter table aios_waitlist add column if not exists phone text
+`
+
+console.log('aios_waitlist table ready (phone column included)')

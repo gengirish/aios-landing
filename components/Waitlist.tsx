@@ -2,6 +2,8 @@
 
 import { useState } from 'react'
 import { ArrowRight, Loader2 } from 'lucide-react'
+import { trackWaitlistSubmit } from '@/lib/analytics'
+import { validateOptionalIndianPhone } from '@/lib/phone'
 
 type Role = 'founder' | 'engineer' | 'researcher' | 'student' | 'other'
 
@@ -16,6 +18,7 @@ const ROLES: { value: Role; label: string }[] = [
 export default function Waitlist() {
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
+  const [phone, setPhone] = useState('')
   const [role, setRole] = useState<Role | null>(null)
   const [useCase, setUseCase] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
@@ -31,6 +34,12 @@ export default function Waitlist() {
       return
     }
 
+    const phoneResult = validateOptionalIndianPhone(phone)
+    if (!phoneResult.ok) {
+      setError(phoneResult.error)
+      return
+    }
+
     setStatus('loading')
     setError('')
 
@@ -41,6 +50,7 @@ export default function Waitlist() {
         body: JSON.stringify({
           name: name.trim(),
           email: email.trim(),
+          phone: phoneResult.e164,
           role,
           use_case: useCase.trim() || undefined,
         }),
@@ -55,6 +65,7 @@ export default function Waitlist() {
       }
 
       setStatus('success')
+      trackWaitlistSubmit(Boolean(phoneResult.e164))
     } catch {
       setStatus('error')
       setError('Something went wrong. Please try again or email girish@intelliforge.tech')
@@ -136,6 +147,23 @@ export default function Waitlist() {
               </div>
             </div>
 
+            {/* Phone (optional — WhatsApp confirmation) */}
+            <div>
+              <label htmlFor="waitlist-phone" className="block text-xs font-600 text-if-text-dim mb-1.5">
+                WhatsApp <span className="opacity-50">(optional, +91)</span>
+              </label>
+              <input
+                id="waitlist-phone"
+                type="tel"
+                inputMode="tel"
+                autoComplete="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="+91 98765 43210"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-sm text-white placeholder-if-text-dim/50 focus:outline-none focus:border-indigo-500/60 focus:bg-white/7 transition-colors"
+              />
+            </div>
+
             {/* Role selector */}
             <div>
               <label className="block text-xs font-600 text-if-text-dim mb-1.5">I am a... *</label>
@@ -190,6 +218,7 @@ export default function Waitlist() {
 
             <p className="text-center text-[11px] text-if-text-dim/60">
               No spam. Alpha invites roll out from August 2026.
+              Add WhatsApp for instant confirmation when available.
               By submitting you agree to receive launch updates from IntelliForge.
             </p>
           </div>

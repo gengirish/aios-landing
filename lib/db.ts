@@ -9,6 +9,7 @@ export function getDb() {
 type WaitlistEntry = {
   name: string
   email: string
+  phone: string | null
   role: string
   use_case: string | null
 }
@@ -20,7 +21,7 @@ export async function insertWaitlistEntry(entry: WaitlistEntry): Promise<void> {
   }
 
   await sql`
-    insert into aios_waitlist (name, email, role, use_case)
-    values (${entry.name}, ${entry.email}, ${entry.role}, ${entry.use_case})
+    insert into aios_waitlist (name, email, phone, role, use_case)
+    values (${entry.name}, ${entry.email}, ${entry.phone}, ${entry.role}, ${entry.use_case})
   `
 }

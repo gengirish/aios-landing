@@ -71,15 +71,17 @@ AISENSY_CAMPAIGN_NAME=aios_waitlist_confirmation
    - Deploy to Vercel (preferred for landing page) or Fly.io bom region
    - Add to existing Turborepo as `apps/aios-landing`
 
-2. Analytics events:
-   - Vercel Analytics is installed; add custom events if needed
-   - Track: waitlist_submit, cta_click, section_view
+2. Analytics events: ✅ implemented
+   - Vercel Analytics custom events: waitlist_submit, cta_click, section_view
 
-3. Waitlist phone field:
-   - AiSensy integration exists in API but form has no phone input yet
-   - Add optional E.164 phone field to unlock WhatsApp confirmation
+3. Waitlist phone field: ✅ implemented
+   - Optional E.164 phone via libphonenumber-js; stored in aios_waitlist.phone
+   - Run on existing Neon DB: `alter table aios_waitlist add column if not exists phone text;`
 
-4. Docs:
+4. LLM SEO: ✅ implemented
+   - `/llms.txt`, `/llms-full.txt`, `app/sitemap.ts`, `app/robots.ts`, JSON-LD, OG image
+
+5. Docs:
    - Wire GitHub repo link when Turborepo goes public
 
 ## Naming Conventions

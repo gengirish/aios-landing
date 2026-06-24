@@ -1,4 +1,5 @@
 import { Check } from 'lucide-react'
+import TrackedLink from '@/components/TrackedLink'
 
 const TIERS = [
   {
@@ -133,12 +134,14 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <a
+              <TrackedLink
                 href={tier.href}
+                cta={tier.cta.toLowerCase().replace(/\s+/g, '_')}
+                location={`pricing_${tier.name.toLowerCase()}`}
                 className={`${tier.ctaStyle} justify-center text-sm py-2.5 px-4 rounded-lg font-600 text-center block`}
               >
                 {tier.cta}
-              </a>
+              </TrackedLink>
             </div>
           ))}
         </div>
