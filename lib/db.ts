@@ -6,7 +6,7 @@ export function getDb() {
   return neon(url)
 }
 
-export type WaitlistEntry = {
+type WaitlistEntry = {
   name: string
   email: string
   role: string

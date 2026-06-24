@@ -1,4 +1,5 @@
-import { Code2, Cloud, Layers, Cpu, Globe } from 'lucide-react'
+import { Code2, Layers, Cpu, Globe } from 'lucide-react'
+import { HARNESS_PACKAGES } from '@/lib/packages'
 
 const LAYERS = [
   {
@@ -46,17 +47,6 @@ const LAYERS = [
     border: 'border-orange-500/30',
     bg: 'bg-orange-500/5',
   },
-]
-
-const PACKAGES = [
-  { pkg: '@intelliforge/harness-core', implements: 'Harness interface layer', exports: 'createHarness(), HarnessInterface, PlanExecuteVerify' },
-  { pkg: '@intelliforge/harness-memory', implements: '5-tier memory system', exports: 'WorkingMemory, SemanticMemory, ExperientialMemory, LongTermMemory' },
-  { pkg: '@intelliforge/harness-tools', implements: 'Tool use + registry', exports: 'ToolRegistry, createTool(), VerificationTool' },
-  { pkg: '@intelliforge/harness-planner', implements: 'Planning mechanisms', exports: 'LinearPlanner, StructuredPlanner, SearchPlanner' },
-  { pkg: '@intelliforge/harness-control', implements: 'PEV loop + sandbox', exports: 'SandboxedExecutor, PermissionTier, FeedbackRouter' },
-  { pkg: '@intelliforge/harness-multi', implements: 'Multi-agent orchestration', exports: 'AgentRoles, SharedHarnessState, CollaborationMode' },
-  { pkg: '@intelliforge/harness-india', implements: 'India-first connectors', exports: 'SarvamSTT, RazorpayTool, WhatsAppTool, ISTScheduler' },
-  { pkg: '@intelliforge/harness-eval', implements: 'Evaluation harness', exports: 'HarnessEval, FinAgentEval, HarnessMetrics' },
 ]
 
 export default function Architecture() {
@@ -108,7 +98,7 @@ export default function Architecture() {
 
         {/* Layer stack */}
         <div className="space-y-3 mb-16">
-          {LAYERS.map((layer, i) => (
+          {LAYERS.map((layer) => (
             <div
               key={layer.label}
               className={`${layer.bg} border ${layer.border} rounded-xl p-5 flex gap-5 items-start group hover:scale-[1.01] transition-transform`}
@@ -146,7 +136,7 @@ export default function Architecture() {
                 </tr>
               </thead>
               <tbody>
-                {PACKAGES.map((pkg, i) => (
+                {HARNESS_PACKAGES.map((pkg, i) => (
                   <tr
                     key={pkg.pkg}
                     className={`border-b border-white/5 last:border-0 hover:bg-white/3 transition-colors ${

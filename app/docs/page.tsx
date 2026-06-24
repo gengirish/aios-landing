@@ -2,56 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowLeft, ExternalLink } from 'lucide-react'
 import CopyButton from '@/components/CopyButton'
+import { HARNESS_PACKAGES, installCommand } from '@/lib/packages'
 
 export const metadata: Metadata = {
   title: 'Docs — IntelliForge AI OS',
   description: 'Install and get started with the @intelliforge/harness SDK packages.',
 }
 
-const PACKAGES = [
-  {
-    pkg: '@intelliforge/harness-core',
-    desc: 'Harness interface layer — createHarness(), PlanExecuteVerify loop',
-    install: 'npm install @intelliforge/harness-core',
-  },
-  {
-    pkg: '@intelliforge/harness-memory',
-    desc: '5-tier memory system — working, semantic, experiential, long-term, multi-agent',
-    install: 'npm install @intelliforge/harness-memory',
-  },
-  {
-    pkg: '@intelliforge/harness-tools',
-    desc: 'Tool use + registry — ToolRegistry, createTool(), VerificationTool',
-    install: 'npm install @intelliforge/harness-tools',
-  },
-  {
-    pkg: '@intelliforge/harness-planner',
-    desc: 'Planning mechanisms — LinearPlanner, StructuredPlanner, SearchPlanner',
-    install: 'npm install @intelliforge/harness-planner',
-  },
-  {
-    pkg: '@intelliforge/harness-control',
-    desc: 'PEV loop + sandbox — SandboxedExecutor, PermissionTier, FeedbackRouter',
-    install: 'npm install @intelliforge/harness-control',
-  },
-  {
-    pkg: '@intelliforge/harness-multi',
-    desc: 'Multi-agent orchestration — AgentRoles, SharedHarnessState, CollaborationMode',
-    install: 'npm install @intelliforge/harness-multi',
-  },
-  {
-    pkg: '@intelliforge/harness-india',
-    desc: 'India-first connectors — SarvamSTT, RazorpayTool, WhatsAppTool, ISTScheduler',
-    install: 'npm install @intelliforge/harness-india',
-  },
-  {
-    pkg: '@intelliforge/harness-eval',
-    desc: 'Evaluation harness — HarnessEval, FinAgentEval, HarnessMetrics',
-    install: 'npm install @intelliforge/harness-eval',
-  },
-]
-
-const QUICKSTART = `npm install @intelliforge/harness-core @intelliforge/harness-memory @intelliforge/harness-tools
+const QUICKSTART = `${installCommand('@intelliforge/harness-core @intelliforge/harness-memory @intelliforge/harness-tools')}
 
 import { createHarness } from '@intelliforge/harness-core'
 
@@ -104,10 +62,10 @@ export default function DocsPage() {
           <h2 className="text-xl font-700 text-white mb-4">Install All Packages</h2>
           <div className="glass-card rounded-xl p-4 flex items-center justify-between gap-4">
             <code className="text-xs font-mono text-cyan-400 break-all">
-              npm install {PACKAGES.map((p) => p.pkg).join(' ')}
+              npm install {HARNESS_PACKAGES.map((p) => p.pkg).join(' ')}
             </code>
             <CopyButton
-              text={`npm install ${PACKAGES.map((p) => p.pkg).join(' ')}`}
+              text={`npm install ${HARNESS_PACKAGES.map((p) => p.pkg).join(' ')}`}
             />
           </div>
         </section>
@@ -116,17 +74,17 @@ export default function DocsPage() {
         <section>
           <h2 className="text-xl font-700 text-white mb-4">Package Reference</h2>
           <div className="space-y-3">
-            {PACKAGES.map((pkg) => (
+            {HARNESS_PACKAGES.map((pkg) => (
               <div key={pkg.pkg} className="glass-card rounded-xl p-5">
                 <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <code className="text-sm font-mono text-cyan-400">{pkg.pkg}</code>
                     <p className="text-sm text-if-text-dim mt-1 leading-relaxed">{pkg.desc}</p>
                   </div>
-                  <CopyButton text={pkg.install} label="Copy install" />
+                  <CopyButton text={installCommand(pkg.pkg)} label="Copy install" />
                 </div>
                 <div className="mt-3 font-mono text-xs text-if-text-dim/80 bg-black/30 rounded-lg px-4 py-2.5">
-                  {pkg.install}
+                  {installCommand(pkg.pkg)}
                 </div>
               </div>
             ))}

@@ -5,22 +5,27 @@
 - Next.js 14 App Router
 - TypeScript strict mode
 - Tailwind CSS with custom IF design tokens (tailwind.config.ts)
+- Neon PostgreSQL via `@neondatabase/serverless` (waitlist)
+- Vercel Analytics (`@vercel/analytics`)
 - lucide-react for icons
 - JetBrains Mono for code traces, Inter for UI
 
-## Design Tokens (from tailwind.config.ts)
-- `if-dark`    #0f172a  — page background
+## Design Tokens
+Tailwind tokens (tailwind.config.ts):
+- `if-dark`     #0f172a  — page background
+- `if-text`     #e2e8f0  — body text
+- `if-text-dim` #94a3b8  — muted text
+- `if-green`    #10b981  — success / eval layer
+
+Brand palette (inline in components + globals.css):
 - `if-indigo`  #4f46e5  — primary brand
 - `if-purple`  #7c3aed  — secondary
 - `if-cyan`    #06b6d4  — accent / India layer
-- `if-green`   #10b981  — success / eval layer
 - `if-orange`  #f97316  — India layer
-- `if-text`    #e2e8f0  — body text
-- `if-text-dim` #94a3b8 — muted text
-- `if-border`  #1e3a5f  — borders
 
 ## CSS Classes (globals.css)
 - `.text-gradient-if`  — indigo→purple→cyan gradient text
+- `.text-gradient-cyan` — cyan gradient text
 - `.glass-card`        — frosted glass card
 - `.glass-card-indigo` — indigo-tinted glass
 - `.glass-card-cyan`   — cyan-tinted glass
@@ -40,36 +45,48 @@
 - `Pricing`      — 4 tiers in INR (Free / ₹2,999 / ₹9,999 / Enterprise)
 - `Waitlist`     — email capture with role selector
 - `Footer`       — links + brand
+- `CopyButton`   — clipboard copy for docs page
+
+## Lib
+- `lib/db.ts`       — Neon client + `insertWaitlistEntry()`
+- `lib/aisensy.ts`  — optional WhatsApp confirmation on waitlist submit
+- `lib/packages.ts` — shared SDK package metadata (Architecture + Docs)
+
+## Environment Variables (.env.local)
+```bash
+DATABASE_URL=postgresql://...          # Neon — required for waitlist
+AISENSY_API_KEY=...                    # optional — WhatsApp confirmation
+AISENSY_CAMPAIGN_NAME=aios_waitlist_confirmation
+```
+
+## Data Layer
+- Database: Neon PostgreSQL
+- Table: `aios_waitlist (id, name, email, role, use_case, created_at)`
+- API route: `POST /api/waitlist` → `lib/db.ts` + fire-and-forget `lib/aisensy.ts`
+- Do NOT use Supabase for this project
 
 ## Key TODOs for Cursor
-1. Wire Waitlist form to Supabase:
-   - Table: `aios_waitlist (id, name, email, role, use_case, created_at)`
-   - Use `@supabase/ssr` package
-   - Add `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_ANON_KEY` to .env.local
-
-2. Docs section (`#docs`):
-   - Create `/app/docs/page.tsx`
-   - Show npm install commands for all 8 packages
-   - Wire to actual GitHub repo when ready
-
-3. Analytics:
-   - Add Vercel Analytics or Plausible
-   - Track: waitlist_submit, cta_click, section_view
-
-4. Deployment:
+1. Deployment:
    - Domain: aios.intelliforge.tech
-   - Deploy to Fly.io bom region OR Vercel (simpler for landing page)
+   - Deploy to Vercel (preferred for landing page) or Fly.io bom region
    - Add to existing Turborepo as `apps/aios-landing`
 
-5. AiSensy WhatsApp confirmation:
-   - On waitlist submit, send WhatsApp confirmation via AiSensy API
-   - Template: "Hi {name}! You're on the IntelliForge AI OS waitlist..."
+2. Analytics events:
+   - Vercel Analytics is installed; add custom events if needed
+   - Track: waitlist_submit, cta_click, section_view
+
+3. Waitlist phone field:
+   - AiSensy integration exists in API but form has no phone input yet
+   - Add optional E.164 phone field to unlock WhatsApp confirmation
+
+4. Docs:
+   - Wire GitHub repo link when Turborepo goes public
 
 ## Naming Conventions
 - All IF products: PascalCase (AwaazOS, ForgeAhead, HridLink)
 - npm packages: lowercase-kebab (@intelliforge/harness-core)
-- API routes: /api/waitlist, /api/docs
-- Supabase tables: snake_case (aios_waitlist)
+- API routes: /api/waitlist
+- Postgres tables: snake_case (aios_waitlist)
 - All INR amounts as integer paise internally (₹2,999 = 299900 paise)
 - Dates: DD/MM/YYYY for display, ISO 8601 for storage
 - Phones: E.164 format

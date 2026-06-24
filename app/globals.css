@@ -36,14 +36,6 @@ body {
     background-clip: text;
   }
 
-  /* Glow effects */
-  .glow-indigo {
-    box-shadow: 0 0 40px rgba(79, 70, 229, 0.25), 0 0 80px rgba(79, 70, 229, 0.1);
-  }
-  .glow-cyan {
-    box-shadow: 0 0 40px rgba(6, 182, 212, 0.2), 0 0 80px rgba(6, 182, 212, 0.08);
-  }
-
   /* Glass cards */
   .glass-card {
     background: rgba(255, 255, 255, 0.04);

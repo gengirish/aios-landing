@@ -5,7 +5,6 @@ const PHASES = [
     title: '@intelliforge/harness-core v0.1',
     desc: 'Scaffold Turborepo package. Implement HarnessInterface, createHarness(), and the Plan→Execute→Verify loop. Port AID Framework agent loop. Publish to npm. "Hello Harness" example wiring Claude Sonnet 4.6 to a sandboxed tool.',
     status: 'In Progress',
-    statusColor: '#f97316',
     packages: ['harness-core'],
   },
   {
@@ -14,7 +13,6 @@ const PHASES = [
     title: 'Memory + India Tools',
     desc: 'WorkingMemory (Redis/BullMQ), SemanticMemory (Supabase pgvector), ExperientialMemory (skill library). ToolRegistry with Razorpay, Sarvam, WhatsApp as first India connectors. AwaazOS migrates onto harness-memory + harness-india. Demo at Bootcamp Cohort 1 kickoff.',
     status: 'Planned',
-    statusColor: '#4f46e5',
     packages: ['harness-memory', 'harness-tools', 'harness-india'],
   },
   {
@@ -23,7 +21,6 @@ const PHASES = [
     title: 'ForgeOS Cloud Alpha',
     desc: 'Managed runtime on Fly.io Mumbai. Supabase shared harness state. BullMQ queues. Agent observatory dashboard. ForgeAhead + Vettd migrate to cloud. 3 external alpha teams from Bootcamp. FinAgentEval wired as eval module. aios.intelliforge.tech goes live.',
     status: 'Planned',
-    statusColor: '#4f46e5',
     packages: ['harness-control', 'harness-eval'],
   },
   {
@@ -32,7 +29,6 @@ const PHASES = [
     title: 'Multi-Agent + Evaluation',
     desc: 'Agent Role Taxonomy (Manager · Planner · Coder · Reviewer · Tester). Shared harness state with transactional semantics. FinAgentEval benchmark suite open-sourced. College partner pilot (REC Hulkoti / IIIT Dharwad). EU enterprise routing via Estonia OÜ. HarnessEval leaderboard published.',
     status: 'Planned',
-    statusColor: '#4f46e5',
     packages: ['harness-multi'],
   },
   {
@@ -41,7 +37,6 @@ const PHASES = [
     title: 'ForgeOS Cloud GA',
     desc: 'Full 8-package SDK stable. All 4 pricing tiers live. 10+ IF products as production tenants. FinAgentEval paper submitted. BuildWithAIGiri shifts to ForgeOS Cloud scaffolds. 3+ college MoUs signed. International expansion.',
     status: 'Vision',
-    statusColor: '#10b981',
     packages: ['all packages stable'],
   },
 ]

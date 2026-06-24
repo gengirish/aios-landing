@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Github, ExternalLink } from 'lucide-react'
+import { Github } from 'lucide-react'
 
 const NAV_LINKS = [
   { label: 'Architecture', href: '#architecture' },
